@@ -1,18 +1,21 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using DG.Tweening;
+using System;
 
 
 public class MenuPlay : MonoBehaviour
 {
     public CinemachineVirtualCameraBase camera1;
     public GameObject PlayMenu;
+    public float TimeToWait;
     // Start is called before the first frame update
     void Start()
     {
-        
+        PlayMenu.transform.DOScale(0,0);
+
+
     }
 
     // Update is called once per frame
@@ -23,7 +26,7 @@ public class MenuPlay : MonoBehaviour
             Debug.Log("menu play");
 
             PlayMenu.SetActive(true);
-            
+            StartCoroutine(SpawnPlayMenu());
         }
         else
         {
@@ -31,5 +34,11 @@ public class MenuPlay : MonoBehaviour
         }
 
         
+    }
+
+    IEnumerator SpawnPlayMenu()
+    {
+        yield return new WaitForSeconds(TimeToWait);
+        PlayMenu.transform.DOScale(1, 5);
     }
 }
