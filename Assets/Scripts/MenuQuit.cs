@@ -6,6 +6,7 @@ using Cinemachine;
 public class MenuQuit : MonoBehaviour
 {
     public CinemachineVirtualCameraBase camera3;
+    public GameObject QuitMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,12 @@ public class MenuQuit : MonoBehaviour
         if (camera3.Priority == 11)
         {
             Debug.Log("menu quit");
+            QuitMenu.SetActive(true);
+
+        }
+        else
+        {
+            QuitMenu.SetActive(false);
         }
     }
 }
