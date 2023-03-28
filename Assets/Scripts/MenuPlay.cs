@@ -9,7 +9,7 @@ public class MenuPlay : MonoBehaviour
 {
     public CinemachineVirtualCameraBase camera1;
     public GameObject PlayMenu;
-    public float TimeToWait;
+    [SerializeField] float TimeToWait;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +39,6 @@ public class MenuPlay : MonoBehaviour
     IEnumerator SpawnPlayMenu()
     {
         yield return new WaitForSeconds(TimeToWait);
-        PlayMenu.transform.DOScale(1, 5);
+        PlayMenu.transform.DOScale(1, 0.6f);
     }
 }
